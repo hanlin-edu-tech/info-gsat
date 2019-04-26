@@ -1,0 +1,144 @@
+<template lang="pug">
+  section.container
+    LayoutBanner
+
+    .box.right(id="pre-exam-download")
+      LayoutTagTitle 歷屆考題下載
+
+      .download-blocks
+        .download-block(v-for="(cycleYear, index) in cycleYears" :key="cycleYear")
+          .download-title
+            .year-tab {{ retrieveAnnual(index) }}
+            table
+              tr
+                td.text-left 歷屆題本
+                td.text-left 精彩解析
+
+          .download-content
+            table
+              tr(v-for="subject in subjects" :key="subject")
+                td
+                  a(target="_blank"
+                    :href="`https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/platform/1.0.0/resource/file/info/my_test_edu/歷屆題本/${retrieveAnnual(index)}${subject}題本.pdf`") {{ subject }} 題本
+                td
+                  a(target="_blank"
+                    :href="`https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/platform/1.0.0/resource/file/info/my_test_edu/精彩解析/${retrieveAnnual(index)}${subject}解析.${determineFileType (index, subject)}`") {{ subject }}
+
+      h1.my-pos Q：如何計算學測級分清楚知道自己的落點？
+      img.banner(src="../../static/img/gsat-rank-guide.png")
+      a.standard(target="_blank"
+        href="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/platform/1.0.0/resource/file/info/my_test_edu/105年學測總級分與各科成績標準Download.pdf") 105年學測總級分與各科成績標準 下載
+</template>
+
+<script>
+  import LayoutBanner from '@/components/layout/LayoutBanner.vue'
+  import LayoutTagTitle from '@/components/layout/LayoutTagTitle.vue'
+  import dayjs from 'dayjs'
+  import 'dayjs/locale/zh-tw'
+
+  export default {
+    name: 'Download',
+    components: {
+      LayoutBanner,
+      LayoutTagTitle
+    },
+
+    data () {
+      return {
+        cycleYears: 9,
+        subjects: ['國文', '英文', '數學', '自然', '社會']
+      }
+    },
+
+    computed: {
+      currentRocYear () {
+        const vueModel = this
+        return dayjs().year() - 1911
+      }
+    },
+
+    methods: {
+      retrieveAnnual (cycleYearIndex) {
+        const vueModel = this
+        return vueModel.currentRocYear - cycleYearIndex
+      },
+
+      determineFileType (cycleYearIndex, subject) {
+        const vueModel = this
+        if (vueModel.retrieveAnnual(cycleYearIndex) === 104 && vueModel.subjects.includes(subject)) {
+          return 'zip'
+        } else {
+          return 'pdf'
+        }
+      },
+
+    }
+  }
+</script>
+
+<style lang="less" scoped>
+  @import '../../static/less/util.less';
+
+  #pre-exam-download {
+    h1.my-pos {
+      margin: 15px;
+      color: black;
+    }
+
+    a.standard {
+      display: inline-block;
+      margin: 15px;
+    }
+
+    .download-blocks {
+      padding-left: 24px;
+      padding-right: 24px;
+      text-align: center;
+
+      .download-block {
+        margin: 20px 0;
+        font-size: 1.4em;
+        color: black;
+
+        & + & {
+          margin-top: 30px;
+        }
+
+        .download-title {
+          height: 49px;
+          text-align: center;
+          position: relative;
+
+          .year-tab {
+            padding: 5px 30px;
+            border: 4px solid #3b91f0;
+            border-radius: 50%;
+            border-bottom: none;
+            font-size: 25px;
+            font-weight: bolder;
+            box-shadow: 1px 1px 10px grey;
+            text-shadow: 2px 2px lightgrey;
+            position: absolute;
+          }
+        }
+
+        .download-content {
+          border: 4px solid #3b91f0;
+          border-radius: 5px;
+        }
+
+        table {
+          margin: 0 auto;
+          width: 300px;
+          height: 100%;
+
+          td:first-child {
+            width: 180px;
+          }
+        }
+      }
+    }
+  }
+
+
+</style>
