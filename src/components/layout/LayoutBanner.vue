@@ -8,7 +8,7 @@
   export default {
     name: 'LayoutBanner',
     props: {
-      msg: String
+      msg: ''
     }
   }
 </script>

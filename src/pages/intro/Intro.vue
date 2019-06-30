@@ -14,7 +14,7 @@
           | 包括國文、英文、數學、社會、自然五考科，旨在測驗考生是否具有接受大學教育的基本學科能力，是大學校系初步篩選學生的門檻。學測各科測驗範圍以高一及高二之必修課程綱要為準，考生五科都必須應考，成績均採級分制。
         p
           | 指定科目考試，為提供給無需學測能力測驗檢定大學申請或已參加學測能力測驗後，放棄錄取想重考之考生的考試選擇。指考最後會根據學生的分數高低，依照志願進行校系分發
-        img.banner(src="../../static/img/sinior-high-school.png")
+        img.banner(:src="require('@/static/img/sinior-high-school.png')")
         h2
           i.fa.fa-star
           |  繁星推薦
@@ -30,7 +30,7 @@
         p 為考生個別報名申請科技校院日間部四年制，並依該校規定繳交審查資料或參與該校複試測驗，最多以申請5個系（組）為限。
 
         h1 二、高中升學管道流程
-        img.banner(src="../../static/img/sinior-high-school2.png")
+        img.banner(:src="require('@/static/img/sinior-high-school2.png')")
 
         h1 三、招生單位資訊
         .table-block

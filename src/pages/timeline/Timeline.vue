@@ -7,7 +7,7 @@
 
       div(style='position: relative;')
         a.btn.green.gsat-exam-info(@click='popupExamDate') 學測時間、科目
-        img.banner(src='../../static/img/gsat-timeline.png')
+        img.banner(:src="require('@/static/img/gsat-timeline.png')")
 
 </template>
 
@@ -26,11 +26,12 @@
 
     methods: {
       popupExamDate () {
+        const timelineImage = require('@/static/img/gsat-timeline.png')
         Swal.fire({
           title: '',
           width: 600,
-          padding: '10em',
-          background: 'url(https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/platform/1.0.0/resource/imgs/info/my_test_edu/p2/108學測-重要時程_跳圖.png) no-repeat 0 0 / contain',
+          padding: '15em',
+          background: `url(${timelineImage}) no-repeat 0 0 / contain`,
           showConfirmButton: false
         })
       }

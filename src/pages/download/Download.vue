@@ -19,15 +19,14 @@
               tr(v-for="subject in subjects" :key="subject")
                 td
                   a(target="_blank"
-                    :href="`https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/platform/1.0.0/resource/file/info/my_test_edu/歷屆題本/${retrieveAnnual(index)}${subject}題本.pdf`") {{ subject }} 題本
+                    :href="`${gsatFilesGCSDownload}/題本/${retrieveAnnual(index)}${subject}題本.pdf`") {{ subject }} 題本
                 td
                   a(target="_blank"
-                    :href="`https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/platform/1.0.0/resource/file/info/my_test_edu/精彩解析/${retrieveAnnual(index)}${subject}解析.${determineFileType (index, subject)}`") {{ subject }}
+                    :href="`${gsatFilesGCSDownload}/解析/${retrieveAnnual(index)}${subject}解析.pdf`") {{ subject }} 解析
 
       h1.my-pos Q：如何計算學測級分清楚知道自己的落點？
-      img.banner(src="../../static/img/gsat-rank-guide.png")
-      a.standard(target="_blank"
-        href="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/platform/1.0.0/resource/file/info/my_test_edu/105年學測總級分與各科成績標準Download.pdf") 105年學測總級分與各科成績標準 下載
+      img.banner(:src="require('@/static/img/gsat-rank-guide.png')")
+      a.standard(target="_blank" :href="`${gsatFilesGCSDownload}/105年學測總級分與各科成績標準.pdf`") 105年學測總級分與各科成績標準 下載
 </template>
 
 <script>
@@ -46,13 +45,13 @@
     data () {
       return {
         cycleYears: 9,
-        subjects: ['國文', '英文', '數學', '自然', '社會']
+        subjects: ['國文', '英文', '數學', '自然', '社會'],
+        gsatFilesGCSDownload: 'https://storage.googleapis.com/ehanlin-web-resource/tutor-platform/infos/gsat/file/學測解析'
       }
     },
 
     computed: {
       currentRocYear () {
-        const vueModel = this
         return dayjs().year() - 1911
       }
     },
@@ -61,17 +60,7 @@
       retrieveAnnual (cycleYearIndex) {
         const vueModel = this
         return vueModel.currentRocYear - cycleYearIndex
-      },
-
-      determineFileType (cycleYearIndex, subject) {
-        const vueModel = this
-        if (vueModel.retrieveAnnual(cycleYearIndex) === 104 && vueModel.subjects.includes(subject)) {
-          return 'zip'
-        } else {
-          return 'pdf'
-        }
-      },
-
+      }
     }
   }
 </script>
