@@ -7,7 +7,7 @@
 
       div(style='position: relative;')
         a.btn.green.gsat-exam-info(@click='popupExamDate') 學測時間、科目
-        img.banner(:src="require('@/static/img/gsat-timeline.png')")
+        img.banner(:src="require('@/static/img/schedule109.png')")
 
 </template>
 
@@ -26,7 +26,7 @@
 
     methods: {
       popupExamDate () {
-        const timelineImage = require('@/static/img/gsat-timeline.png')
+        const timelineImage = require('@/static/img/time109.png')
         Swal.fire({
           title: '',
           width: 600,
