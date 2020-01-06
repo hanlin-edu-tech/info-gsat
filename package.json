@@ -11,6 +11,7 @@
   "dependencies": {
     "dayjs": "^1.8.11",
     "ehanlin-basicss": "0.0.3",
+    "gulp-gcloud-publish": "^2.1.1",
     "sweetalert2": "^8.6.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
@@ -21,7 +22,7 @@
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-service": "^3.7.0",
     "cross-env": "^5.2.0",
-    "gulp": "^4.0.1",
+    "gulp": "^3.9.1",
     "gulp-cache": "^1.1.1",
     "gulp-imagemin": "^5.0.3",
     "imagemin-pngquant": "^7.0.0",
