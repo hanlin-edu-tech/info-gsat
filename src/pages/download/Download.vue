@@ -52,7 +52,7 @@
 
     computed: {
       currentRocYear () {
-        return dayjs().year() - 1912
+        return dayjs().year() - 1911
       }
     },
 
