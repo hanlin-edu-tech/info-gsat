@@ -7,7 +7,7 @@
 
       div(style='position: relative;')
         a.btn.green.gsat-exam-info(@click='popupExamDate') 學測時間、科目
-        img.banner(:src="require('@/static/img/schedule109.png')")
+        img.banner(:src="require('@/static/img/schedule110.png')")
 
 </template>
 
@@ -26,7 +26,7 @@
 
     methods: {
       popupExamDate () {
-        const timelineImage = require('@/static/img/time109.png')
+        const timelineImage = require('@/static/img/time110.png')
         Swal.fire({
           title: '',
           width: 600,
@@ -45,9 +45,9 @@
   #gsat-important-timeline {
     .gsat-exam-info {
       position: absolute;
-      padding: 8px 20px;
-      right: 70px;
-      bottom: 125px;
+      padding: 4px 20px;
+      right: 45px;
+      bottom: 112px;
     }
   }
 
