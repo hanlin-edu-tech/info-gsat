@@ -59,7 +59,7 @@
                   p (05)272-1799（電話）
                   p (05)272-3771（傳真）
                 td.text-left
-                  a(target="_blank" href="https://www.caac.ccu.edu.tw") https://www.caac.ccu.edu.tw
+                  a(target="_blank" href="https://www.cac.edu.tw/cacportal/index.php") https://www.cac.edu.tw/cacportal/index.php
               tr
                 td 術科考試試務 (如音樂、美術)
                 td
