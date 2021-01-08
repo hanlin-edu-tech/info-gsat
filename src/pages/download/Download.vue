@@ -8,7 +8,7 @@
       .download-blocks
         .download-block(v-for="(cycleYear, index) in cycleYears" :key="cycleYear")
           .download-title
-            .year-tab {{ retrieveAnnual(index) }}
+            .year-tab {{ cycleYear }}
             table
               tr
                 td.text-left 歷屆題本
@@ -19,10 +19,10 @@
               tr(v-for="subject in subjects" :key="subject")
                 td
                   a(target="_blank"
-                    :href="`${gsatFilesGCSDownload}/題本/${retrieveAnnual(index)}${subject}題本.pdf`") {{ subject }} 題本
+                    :href="`${gsatFilesGCSDownload}/題本/${cycleYear}${subject}題本.pdf`") {{ subject }} 題本
                 td
                   a(target="_blank"
-                    :href="`${gsatFilesGCSDownload}/解析/${retrieveAnnual(index)}${subject}解析.pdf`") {{ subject }} 解析
+                    :href="`${gsatFilesGCSDownload}/解析/${cycleYear}${subject}解析.pdf`") {{ subject }} 解析
 
       h1.my-pos Q：如何計算學測級分清楚知道自己的落點？
       img.banner(:src="require('@/static/img/gsat-rank-guide.png')")
@@ -44,7 +44,7 @@
 
     data () {
       return {
-        cycleYears: 9,
+        cycleYears: [109,108,107,106,105,104,103,102,101,100],
         subjects: ['國文', '英文', '數學', '自然', '社會'],
         gsatFilesGCSDownload: 'https://storage.googleapis.com/ehanlin-web-resource/tutor-platform/infos/gsat/file/學測解析'
       }
