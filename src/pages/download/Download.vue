@@ -35,6 +35,8 @@
   import dayjs from 'dayjs'
   import 'dayjs/locale/zh-tw'
 
+  window.location.href = "https://www.ehanlin.com.tw/event/pre-exam/download/index.html#GSAT"
+
   export default {
     name: 'Download',
     components: {
