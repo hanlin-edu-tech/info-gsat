@@ -28,7 +28,7 @@
     "imagemin-pngquant": "^7.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "pug-html-loader": "^1.1.5",
     "pug-plain-loader": "^1.0.0",
     "vue-template-compiler": "^2.5.21"
